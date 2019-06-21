@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+    try {
+        console.log( 'try' )
+        setTimeout(() => {
+error        // 异步错误
+        })
+    } catch (error) {
+        console.log( error, 'catci' )
+    }
+    console.log( 'error' )
+    setTimeout(() => {
+        console.log( '10' )
+    }, 10)
+
+    window.onerror = function(msg, url, row, col, error) {
+        console.log( msg )
+        console.log( url )
+        console.log( row )
+        console.log( col )
+        console.log( error )
+    }
+</script>

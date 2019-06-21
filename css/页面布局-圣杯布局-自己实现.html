@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        html, body {
+            height: 100%;
+            width: 100%;
+        }
+        .container {
+            height: inherit;
+            background-color: #eee;
+        }
+        header, footer {
+            height: 100px;
+            background: skyblue;
+        }
+        .clearfix {
+            overflow: hidden;
+        }
+        section.wrapper {
+            padding: 0 100px;
+            background-color: orange;
+        }
+        section.main, section.left, section.right {
+            height: 300px;
+            width: 100px;
+            background: #eee;
+            float: left;
+            position: relative;
+        }
+        section.main {
+            width: 100%;
+        }
+        section.left, section.right {
+            background-color: yellowgreen;
+        }
+        section.left {
+            left: -100px;
+            margin-left: -100%;
+        }
+        section.right {
+            right: -100px;
+            margin-left: -100px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header></header>
+        <section class="wrapper clearfix">
+            <section class="main">main</section>
+            <section class="left">leftleftleftleftleftleftleftleft</section>
+            <section class="right">right</section>
+        </section>
+        <footer></footer>
+    </div>
+</body>
+</html>

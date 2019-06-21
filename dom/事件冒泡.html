@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        .first, .second {
+            height: 1000px;
+            background-color: skyblue;
+        }
+        .first {
+            margin-top: 20px;
+            border-bottom: 20px solid green;
+        }
+        .second {
+            background-color: orange;
+        }
+    </style>
+</head>
+<body>
+    <div class="first"></div>
+    <div class="second"></div>
+    <button>点击</button>
+    <!-- <script>
+        var btn = document.querySelector('button')
+        btn.onclick = function() {
+            console.log( 'button' )
+        }
+        document.body.onclick = function() {
+            console.log( 'body' )
+        }
+        document.documentElement.onclick = function() {
+            console.log( 'html' )
+        }
+        document.onclick = function() {
+            console.log( 'document' )
+        }
+        window.onclick = function() {
+            console.log( 'window' )
+        }
+    </script> -->
+    <!-- <script>
+        var btn = document.querySelector('button');
+        btn.addEventListener('click', function(e) {
+            console.log( 'button', e.eventPhase )
+        }, true)
+        document.body.addEventListener('click', function(e) {
+            console.log( 'body', e.eventPhase )
+        }, false)
+        document.documentElement.addEventListener('click', function() {
+            console.log( 'html' )
+        }, true)
+        document.addEventListener('click', function() {
+            console.log( 'document' )
+        }, true)
+        window.addEventListener('click', function(e) {
+            console.log( 'window', e.eventPhase )
+        }, true)
+    </script> -->
+    <script>
+        // 事件对象中的几个位置信息
+        // 1. 浏览器可视区左上角(0,0)的坐标: e.clientX  e.clientY
+        // 2. 相对于设备屏幕左上角(0,0)的坐标: e.screenX  e.screenY
+        // 3. 相对于事件源左上角(0,0)的坐标: e.offsetX  e.offsetY
+        // 4. 相对于整个网页左上角(0,0)的坐标: e.pageX    e.pageY
+        let divs = document.querySelectorAll('div')
+        divs[0].addEventListener('click', function(e) {
+            console.log( 'div1' )
+            console.log( '浏览器可视区左上角(0,0)的坐标:', e.clientX, e.clientY )
+            console.log( '相对于设备屏幕左上角(0,0)的坐标:',  e.screenX, e.screenY )
+            console.log( '相对于事件源左上角(0,0)的坐标:',  e.offsetX, e.offsetY )
+            console.log( '相对于整个网页左上角(0,0)的坐标:',  e.pageX, e.pageY )
+        })
+        divs[1].addEventListener('click', function(e) {
+            console.log( 'div2', e.eventPhase )
+        })
+    </script>
+</body>
+</html>

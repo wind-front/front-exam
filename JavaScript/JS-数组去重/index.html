@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let arr = [1,NaN, NaN, null,3,5,'1','1',true,true,null,undefined,undefined, {},{},[], [], {a: 2}, {a: 2}, function(){}, function(){}]
+        //第一种去重方法 -- ES6 new Set：只能去除基本数据类型: (数字、字符串、undefined、null、boolearn, NaN), {},[],function无法去除
+        let arr1 = new Set([...arr])
+        console.log( arr1, 'origin length: ' + arr.length )
+        
+        //第二种去重方法 -- indexOf: {},[],function, NaN无法去除
+        function unique(arr) {
+            if (!Array.isArray(arr)) return
+            let res = []
+            arr.forEach(item => {
+                if (res.indexOf(item) === -1) {
+                    res.push(item)
+                }
+            })
+            return res
+        }
+        console.log( unique(arr), 'origin length: ' + arr.length )
+
+        //第三种去重方法 -- includes: {},[],function无法去除，相比indexOf，去除了NaN
+        function unique2(arr) {
+            if (!Array.isArray(arr)) return
+            let res = []
+            arr.forEach(item => {
+                if (!res.includes(item)) {
+                    res.push(item)
+                }
+            })
+            return res
+        }
+        console.log( unique2(arr), 'origin length: ' + arr.length )
+
+        //第四种去重方法
+        function unique3(arr) {
+            return arr.filter(function(item, index, arr) {
+                // 当前元素，在原始数组中的第一个索引==当前索引值，则当前元素
+                console.log( arr.indexOf(item), item )
+                return arr.indexOf(item) === index;
+            });
+        }
+        console.log( unique3(arr), 'origin length: ' + arr.length )
+        // console.log( unique3([NaN, NaN]), 'origin length: ' + arr.length )
+
+    </script>
+</body>
+</html>

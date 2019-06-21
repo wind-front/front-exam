@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        div:first-letter {
+            color: red;
+        }
+        div::first-line {
+            background-color: skyblue;
+        }
+        div::before {
+            content: "";
+            display: block;
+            width: 30px;
+            height: 30px;
+            background-color: orange;
+            position: absolute;
+        }
+        div::after {
+            content: "";
+            display: block;
+            width: 30px;
+            height: 30px;
+            background-color: pink;
+            position: absolute;
+            left: 300px;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Earum asper
+        <br>
+        natur, beatae commodi quae ad a sint, inventore iusto saepe, assumenda q
+        <br>
+        uibusdam aut autem repellendus ab cupiditate eaque ex impedit maxime.
+    </div>
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+//对象拥有两种属性：数据属性和访问器属性
+let obj = { _year: 26}
+
+Object.defineProperty(obj, 'name', {
+    configurable: true, //是否可以通过delete删除属性
+    enumerable: false, // 是否能通过for in循环返回属性
+    writable: false, //是否能修改属性值
+    value: 'jack' //属性值
+})
+
+for (let key in obj) {
+    console.log( key )
+}
+
+Object.defineProperty(obj, 'year', {
+    get(value) {
+        return this._year
+    }
+})
+
+obj.__defineGetter__('gender', function() {
+    return this._year
+})
+obj.__defineSetter__('gender', function(value) {
+    this._year = value
+})
+
+//一次定义多个属性
+Object.defineProperties(obj, {
+    like: {
+        value: 'runing'
+    },
+    object: {
+        value: 'xiameimei',
+    },
+    income: {
+        get() {
+            return 20
+        },
+        set(newval) {
+
+        }
+    }
+})
+
+console.log( Object.getOwnPropertyDescriptor(obj, 'income') )
+
+</script>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      html, body {
+          width: 100%;
+      }
+      body {
+        background-color: skyblue;
+      }
+      .container {
+        margin: 50px auto;
+      }
+      #bysf .wrapper {
+        color: #fff;
+      }
+      #bysf .col {
+        float: left;
+      }
+      #bysf .header {
+        height: 50px;
+        background-color: #666;
+        color: #fff;
+      }
+      #bysf .main {
+        width: 100%;
+        background-color: #555;
+      }
+      #bysf .main-wrap {
+        margin: 0 300px 0 300px;
+        height: 200px;
+      }
+      #bysf .left {
+        width: 300px;
+        height: 200px;
+        margin-left: -100%;
+        background-color: #999;
+      }
+      #bysf .right {
+        width: 300px;
+        height: 200px;
+        margin-left: -300px;
+        background-color: #999;
+      }
+      #bysf .footer {
+        height: 50px;
+        background-color: #666;
+        color: #fff;
+      }
+      .clearfix::after {
+        content: "";
+        display: block;
+        clear: both;
+        visibility: hidden;
+        height: 0;
+        overflow: hidden;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="bysf" class="container">
+      双飞翼布局
+      <div class="header">header</div>
+      <div class="wrapper clearfix">
+        <div class="main col"><div class="main-wrap">main</div></div>
+        <div class="left col">left</div>
+        <div class="right col">right</div>
+      </div>
+      <div class="footer">footer</div>
+    </div>
+  </body>
+</html>

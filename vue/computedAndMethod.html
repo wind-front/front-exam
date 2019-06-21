@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <p>{{computed1}}</p>
+        <p>{{computed2}}</p>
+        <p>{{methods1()}}</p>
+        <p>{{methods2()}}</p>
+        <button @click="handleClick">触发更新</button>
+        <template v-if="h1">
+            <h1>H1</h1>
+            <h2>H2</h2>
+        </template>
+        <template v-else>
+            <h3>H3</h3>
+            <h4>H4</h4>
+        </template>
+        <pl-button></pl-button>
+    </div>
+</body>
+</html>
+<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+<script>
+    Vue.component('pl-button', {
+        template: `<button>This is custom button</button>`
+    })
+
+    const vm = new Vue({
+        el: "#app",
+        data() {
+            return {
+                msg1: 6,
+                msg2: 8,
+                h1: true
+            }
+        },
+        computed: {
+            computed1(){
+                console.log( 'computed1' )
+                return this.msg1 ** 2
+            },
+            computed2(){
+                console.log( 'computed2' )
+                return this.msg2 ** 2
+            }
+        },
+        methods: {
+            methods1() {
+                console.log( 'methods1' )
+                return 'This is methods1'
+            },
+            methods2() {
+                console.log( 'methods2' )
+                return 'This is methods2'
+            },
+            handleClick() {
+                this.msg1 = 9
+            }
+        }
+    })
+</script>

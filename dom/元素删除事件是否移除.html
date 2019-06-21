@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .box {
+            width: 200px;
+            height: 200px;
+            background-color: skyblue;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <button>点击1</button>
+        <button>点击2</button>
+        <button>点击3</button>
+        <button>点击4</button>
+    </div>
+    <!-- <script>
+        let btn = document.querySelector('button')
+        let div = document.querySelector('div')
+        btn.onclick = function() {
+            div.innerHTML = 'Removing...'
+            console.log( btn )
+            console.log( btn.onclick )
+        }
+    </script> -->
+    <script>
+        let div = document.querySelector('div')
+        function handle(e) {
+            switch(e.target.innerHTML) {
+                case '点击1':
+                console.log( '第一个按钮点击' )
+                break;
+                case '点击2':
+                console.log( '第二个按钮点击' )
+                break;
+                case '点击3':
+                console.log( '第三个按钮点击' )
+                break;
+                case '点击4':
+                console.log( '第四个按钮点击' )
+                break;
+            }
+        }
+        div.addEventListener('click', handle, true)
+    </script>
+</body>
+</html>

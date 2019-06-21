@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    .wp {
+        border: 1px solid red;
+        width: 300px;
+        height: 300px;
+    }
+    .box {
+        background: orange;    
+    }
+    .box.size{
+        width: 100px;
+        height: 100px;
+        line-height: 100px;
+        color: #eee;
+        text-align: center;
+    }
+    </style>
+    <!-- 1.需要知道居中子元素宽高 -->
+    <!-- <style>
+        .wp {
+            position: relative;
+        }
+        .box {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            margin-top: -50px;
+            margin-left: -50px;
+        }
+    </style> -->
+    <!-- 2.需要知道居中子元素宽高 -->
+    <!-- <style>
+        .wp {
+            position: relative;
+        }
+        .box {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            margin: auto;
+        }
+    </style> -->
+    <!-- 3.需要知道居中子元素宽高 -->
+    <!-- <style>
+        .wp {
+            position: relative;
+        }
+        .box {
+            position: absolute;
+            top: calc(50% - 50px);
+            left: calc(50% - 50px);
+        }
+    </style> -->
+    <!-- 4.不需要知道居中子元素宽高 absolute + transform -->
+    <!-- <style>
+        .wp {
+            position: relative;
+        }
+        .box {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+    </style> -->
+    <!-- 5.不需要知道居中子元素宽高 table: table单元格中的内容天然是垂直居中的 -->
+    <!-- <style>
+        .wp {
+            text-align: center;
+        }
+        .box {
+            display: inline-block;
+            height: 50px;
+        }
+    </style> -->
+    <!-- 6.不需要知道居中子元素宽高 display: table-cell让元素拥有table特性 -->
+    <!-- <style>
+        .wp {
+            display: table-cell;
+            text-align: center;
+            vertical-align: middle;
+        }
+        .box {
+            display: inline-block;
+        }
+    </style> -->
+    <!-- 7.不需要知道居中子元素宽高 display: flex -->
+    <style>
+        .wp {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="wp">
+        <div class="box size">123123</div>
+    </div>
+</body>
+</html>

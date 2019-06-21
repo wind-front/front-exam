@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        .container{width: 500px; margin: 50px auto; background: skyblue}
+        #shengbei .wrapper {padding: 0 100px 0 100px; color:#fff;}
+        #shengbei .col{position: relative;float: left;}
+        #shengbei .header {height: 50px;background-color: #666;color:#fff;}
+        #shengbei .main {width: 100%;height: 200px;background-color: #555;}
+        #shengbei .left {width: 100px;height: 200px;margin-left: -100%;left: -100px;background-color: #999;}
+        #shengbei .right {width: 100px;height: 200px;margin-left: -100px;right: -100px;background-color: #999;}
+        #shengbei .footer {height: 50px;background-color: #666; color:#fff;}
+    </style>
+</head>
+<body>
+    <div id="shengbei" class="container">
+        圣杯布局
+        <div class="header">header</div>
+        <div class="wrapper clearfix">
+            <div class="main col">
+                mainmainmainmainmainmain
+            </div>
+            <div class="left col">
+                leftleftleftleftleftleftleft
+            </div>
+            <div class="right col">
+                rightrightrightrightrightright
+            </div>
+        </div>
+        <div class="footer">footer</div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        span {
+            /* float: left; */
+            display: inline;
+            float: right;
+            background-color: rgba(25, 196, 226, 0.397);
+        }
+        .box {
+            width: 300px;
+            border: 5px solid red;
+        }
+        .son {
+            float: left;
+            width: 80px;
+            height: 80px;
+            margin: 20px;
+            background: #ccc;
+        }
+        /* .clearfix::before, .clearfix::after {
+            display: table;
+            content: "";
+        }
+        .clearfix:after {
+            clear: both;
+        } */
+        .clearfix {
+            /* overflow: auto; */
+            /* position: absolute; */
+            float: left;
+        }
+        .son-box {
+            width: 100px;
+            height: 100px;
+            background-color: orange;
+            float: left;
+            margin: 5px;
+        }
+    </style>
+</head>
+<body>
+    <span>11</span>
+    <span>22</span>
+    <span>33</span>
+    <span>44</span>
+    <span>55</span>
+    <div class="box clearfix">
+        <div class="son"></div>
+        <div class="son"></div>
+        <div class="son"></div>
+    </div>
+    <div class="box">
+        <div class="son-box"></div>
+        Lorem ipsum dolor sit amet consectetur
+         adipisicing elit. Sunt veniam architecto iust
+         o delectus quidem ut reprehenderit pariatur dolore incidunt reiciendis harum hic fugiat nulla, fugit excepturi consectetur earum tempora maiores.
+    </div>
+</body>
+</html>

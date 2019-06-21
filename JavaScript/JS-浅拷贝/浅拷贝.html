@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  
+</body>
+</html>
+<script>
+  //浅拷贝
+  let obj = {
+    a: 1,
+    b: {
+      text: "text",
+      c: {
+        inText: "inText"
+      }
+    },
+    d: undefined,
+    f: null,
+    g: 2019
+  }
+
+  //自己实现浅拷贝：原理，当属性是对象的时候递归添加
+  function cloneShallow(source) {
+    let result = {}
+    for (let key in source) {
+      if (Object.prototype.hasOwnProperty.call(source, key)){
+        result[key] = source[key]
+      }
+    }
+    return result
+  }
+  let res = cloneShallow(obj)
+  res.a = 2
+  res.b.text = "newText"
+  console.log( obj, 'obj' )
+
+
+
+</script>

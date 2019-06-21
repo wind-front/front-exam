@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+    // 1. 良好的错误处理机制可以让开发者以及用户得到良好的反馈，不至于惊惶失措，
+    try {
+        //可能发生错误的代码
+        const a = 10
+        a = 20
+        return 10
+    } catch (e) {
+        //e为错误对象，message属性包含错误信息
+        //在错误发生时如何处理
+        console.log(e.message)
+        return 20
+    } finally {
+        //finally语句在try\catch内执行，它都会执行，包括return都会忽略，最终返回30
+        //添加了finally语句，catch即变成可选的
+        console.log('finally')
+        return 30
+    } 
+
+    function CustomError (message) {
+        this.name = 'customError'
+        this.message = message
+    }
+    throw new CustomError('20190426-Error')
+
+</script>
