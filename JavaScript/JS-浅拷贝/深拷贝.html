@@ -11,7 +11,7 @@
 </body>
 </html>
 <script>
-  //浅拷贝
+  //深拷贝
   let obj = {
     a: 1,
     b: {
@@ -25,17 +25,20 @@
     g: 2019
   }
 
-  //自己实现浅拷贝：原理，for in循环添加
-  function cloneShallow(source) {
+  //自己实现深拷贝：实现原理：当遇到对象时继续递归添加
+  function cloneDeep(source) {
     let result = {}
-    for (let key in source) {
-      if (Object.prototype.hasOwnProperty.call(source, key)){
+    for(let key in source) {
+      if (Object.prototype.toString.call(source[key]) === "[object Object]"){
+        result[key] = cloneDeep(source[key])
+      } else {
         result[key] = source[key]
       }
     }
     return result
   }
-  let res = cloneShallow(obj)
+
+  let res = cloneDeep(obj)
   res.a = 2
   res.b.text = "newText"
   console.log( obj, 'obj' )
