@@ -6,6 +6,10 @@
  * @version   v4.2.5+7f2b526d
  */
 
+ //疑问一：在项目中使用 new Promise，这里导出的确是 Promise$1
+ //疑问二：626: new Enumerator(this, entries).promise; //Enumerator()函数返回值的对象中没promise属性
+ //疑问三：在IE中无法使用 new Promise
+
 (function (global, factory) {
 	typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory() :	typeof define === 'function' && define.amd ? define(factory) :	(global.ES6Promise = factory());
 }(this, (function () { 'use strict';
