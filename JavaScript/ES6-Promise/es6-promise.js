@@ -7,12 +7,8 @@
  */
 
 (function (global, factory) {
-  console.log( typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory() :	typeof define === 'function' && define.amd )
-  // debugger
-
 	typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory() :	typeof define === 'function' && define.amd ? define(factory) :	(global.ES6Promise = factory());
 }(this, (function () { 'use strict';
-
 function objectOrFunction(x) {
   var type = typeof x;
   return x !== null && (type === 'object' || type === 'function');
@@ -1061,7 +1057,8 @@ var Promise$1 = function () {
   @return {Promise}
   */
 
-
+  // console.log( Promise, 'Promise' )
+  
   Promise.prototype.catch = function _catch(onRejection) {
     return this.then(null, onRejection);
   };
@@ -1141,6 +1138,8 @@ Promise$1._asap = asap;
 function polyfill() {
   var local = void 0;
 
+  console.log( 'polyfill' )
+
   if (typeof global !== 'undefined') {
     local = global;
   } else if (typeof self !== 'undefined') {
@@ -1170,15 +1169,14 @@ function polyfill() {
 
   local.Promise = Promise$1;
 }
-
 // Strange compat..
 Promise$1.polyfill = polyfill;
 Promise$1.Promise = Promise$1;
 
+// console.dir( Promise$1, 'Promise$1' )
+
 return Promise$1;
 
 })));
-
-
 
 //# sourceMappingURL=es6-promise.map
