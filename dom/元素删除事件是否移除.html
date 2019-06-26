@@ -20,16 +20,67 @@
         <button>点击3</button>
         <button>点击4</button>
     </div>
-    <!-- <script>
-        let btn = document.querySelector('button')
-        let div = document.querySelector('div')
-        btn.onclick = function() {
-            div.innerHTML = 'Removing...'
-            console.log( btn )
-            console.log( btn.onclick )
-        }
-    </script> -->
     <script>
+        // let btn = document.querySelector('button')
+        // let div = document.querySelector('div')
+        // btn.onclick = function() {
+        //     console.log( this )
+        //     // div.innerHTML = 'Removing...'
+        // }
+
+        let div = document.querySelector('div')
+        function water(fn, delay) {
+            var timer, firstTime = true, _fn = fn;
+            return function() {
+                const _this = this
+                const arg = arguments;
+                if (firstTime) {
+                    _fn.apply(_this, arg)
+                    return firstTime = false;
+                }
+                if (timer) {
+                    return false
+                }
+                timer = setTimeout(function() {
+                    clearTimeout(timer)
+                    timer = null
+                    _fn.apply(_this, arg)
+                }, delay || 500)
+            }
+        }
+
+        let test = "hhhh"
+
+        div.onmousemove = water(function(test) {
+            console.log( this )
+            console.log('1')
+        }, 500)
+
+
+        var throttle = function(func, delay) {
+            var timer = null;
+            var startTime = Date.now();
+            return function() {
+                var curTime = Date.now();
+                var remaining = delay - (curTime - startTime);
+                var context = this;
+                var args = arguments;
+                clearTimeout(timer);
+                if (remaining <= 0) {
+                    func.apply(context, args);
+                    startTime = Date.now();
+                } else {
+                    timer = setTimeout(func, remaining);
+                }
+            }
+        }
+        function handle() {
+            console.log(Math.random());
+        }
+        window.addEventListener('scroll', throttle(handle, 1000));
+
+    </script>
+    <!-- <script>
         let div = document.querySelector('div')
         function handle(e) {
             switch(e.target.innerHTML) {
@@ -48,6 +99,6 @@
             }
         }
         div.addEventListener('click', handle, true)
-    </script>
+    </script> -->
 </body>
 </html>

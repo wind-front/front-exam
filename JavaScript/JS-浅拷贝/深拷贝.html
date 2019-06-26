@@ -18,18 +18,23 @@
       text: "text",
       c: {
         inText: "inText"
-      }
+      },
+      h: [1,2,{i : "iii"}]
     },
     d: undefined,
     f: null,
     g: 2019
   }
 
-  //自己实现深拷贝：实现原理：当遇到对象时继续递归添加
+  function isObject(params) {
+    return typeof params === 'object' && params != null
+  }
+  //自己实现深拷贝：实现原理：当遇到对象时继续递归添
   function cloneDeep(source) {
-    let result = {}
+    if (!isObject(source)) return source
+    let result = Array.isArray(source) ? [] : {}
     for(let key in source) {
-      if (Object.prototype.toString.call(source[key]) === "[object Object]"){
+      if (isObject(source)){
         result[key] = cloneDeep(source[key])
       } else {
         result[key] = source[key]
@@ -41,6 +46,7 @@
   let res = cloneDeep(obj)
   res.a = 2
   res.b.text = "newText"
+  res.b.h[2].i = 6
   console.log( obj, 'obj' )
 
 </script>
